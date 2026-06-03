@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YT-Reigen Control Panel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="header">
+      <div class="logo-area">
+        <div class="logo-glow"></div>
+        <span class="logo-text">Nikhil's Personal YT</span>
+      </div>
+      <span class="version-tag">v1.0.0</span>
+    </header>
+
+    <div class="divider"></div>
+
+    <main class="controls">
+      <!-- Toggle 1: Ambient Glow -->
+      <div class="control-row">
+        <div class="control-info">
+          <span class="control-label">Ambient Glow Engine</span>
+          <span class="control-desc">Real-time dynamic backdrop illumination</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="ambient-glow-toggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Toggle 2: Transparent UI -->
+      <div class="control-row">
+        <div class="control-info">
+          <span class="control-label">Cinematic Transparent UI</span>
+          <span class="control-desc">Fades YouTube layout backgrounds</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="transparent-ui-toggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <!-- Toggle 3: Minimalist Search -->
+      <div class="control-row">
+        <div class="control-info">
+          <span class="control-label">Minimalist Search</span>
+          <span class="control-desc">Press S to search, Esc to close</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="minimalist-search-toggle" checked>
+          <span class="slider"></span>
+        </label>
+      </div>
+    </main>
+
+    <div class="divider"></div>
+
+    <footer class="footer">
+      <div id="status-container" class="status-container inactive">
+        <span class="status-dot"></span>
+        <span id="status-text" class="status-text">Checking status...</span>
+      </div>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

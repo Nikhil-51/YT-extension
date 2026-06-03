@@ -1,0 +1,211 @@
+/* === Nikhil's Personal YT Extension - Styles === */
+
+/* --- Ambient Glow Canvas --- */
+#yt-reigen-glow-canvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -9999 !important;
+  pointer-events: none !important;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: blur(150px);
+}
+
+/* Show canvas only when ambient glow is enabled */
+html[data-yt-reigen-glow="true"] #yt-reigen-glow-canvas {
+  opacity: 0.8;
+}
+
+/* --- Cinematic Transparent UI --- */
+html[data-yt-reigen-transparent="true"] {
+  background-color: #050507 !important;
+}
+
+html[data-yt-reigen-transparent="true"] body,
+html[data-yt-reigen-transparent="true"] ytd-app,
+html[data-yt-reigen-transparent="true"] #page-manager,
+html[data-yt-reigen-transparent="true"] ytd-watch-flexy,
+html[data-yt-reigen-transparent="true"] #columns,
+html[data-yt-reigen-transparent="true"] #primary,
+html[data-yt-reigen-transparent="true"] #secondary,
+html[data-yt-reigen-transparent="true"] #contentContainer,
+html[data-yt-reigen-transparent="true"] #player-container-outer,
+html[data-yt-reigen-transparent="true"] #player-container-inner,
+html[data-yt-reigen-transparent="true"] #player-container,
+html[data-yt-reigen-transparent="true"] #ytd-player,
+html[data-yt-reigen-transparent="true"] ytd-browse,
+html[data-yt-reigen-transparent="true"] ytd-two-column-browse-results-renderer,
+html[data-yt-reigen-transparent="true"] #primary.ytd-two-column-browse-results-renderer {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Masthead (Header) Glassmorphism */
+html[data-yt-reigen-transparent="true"] #masthead-container,
+html[data-yt-reigen-transparent="true"] ytd-masthead,
+html[data-yt-reigen-transparent="true"] #background.ytd-masthead {
+  background: rgba(10, 10, 12, 0.3) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Sidebar Navigation Drawer Glassmorphism */
+html[data-yt-reigen-transparent="true"] ytd-guide-renderer,
+html[data-yt-reigen-transparent="true"] ytd-mini-guide-renderer,
+html[data-yt-reigen-transparent="true"] #guide-content,
+html[data-yt-reigen-transparent="true"] #contentContainer.app-drawer {
+  background: rgba(10, 10, 12, 0.4) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Content Panel / Cards Glassmorphism */
+html[data-yt-reigen-transparent="true"] ytd-watch-metadata,
+html[data-yt-reigen-transparent="true"] #meta-contents,
+html[data-yt-reigen-transparent="true"] #info-contents,
+html[data-yt-reigen-transparent="true"] ytd-comments,
+html[data-yt-reigen-transparent="true"] #related,
+html[data-yt-reigen-transparent="true"] ytd-playlist-panel-renderer,
+html[data-yt-reigen-transparent="true"] #panels.ytd-watch-flexy,
+html[data-yt-reigen-transparent="true"] ytd-live-chat-frame {
+  background: rgba(15, 15, 18, 0.3) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  padding: 18px !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
+  margin-bottom: 20px !important;
+  overflow: hidden !important;
+}
+
+/* Live chat overrides */
+html[data-yt-reigen-transparent="true"] iframe#chatframe {
+  background: transparent !important;
+}
+
+/* Secondary overlays and tags */
+html[data-yt-reigen-transparent="true"] yt-chip-cloud-chip-renderer {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+html[data-yt-reigen-transparent="true"] yt-chip-cloud-chip-renderer[selected] {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #fff !important;
+}
+
+/* Distraction-free cleanups */
+html[data-yt-reigen-transparent="true"] #ticket-shelf,
+html[data-yt-reigen-transparent="true"] ytd-merch-shelf-renderer {
+  display: none !important;
+}
+
+/* --- Minimalist Search --- */
+
+/* Normal styling when not expanded */
+html[data-yt-reigen-search="true"] ytd-searchbox {
+  width: 40px !important;
+  max-width: 40px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  overflow: hidden !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  margin-left: 20px !important;
+  box-shadow: none !important;
+}
+
+html[data-yt-reigen-search="true"] ytd-searchbox:hover {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+html[data-yt-reigen-search="true"] ytd-searchbox #container {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.15s ease !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html[data-yt-reigen-search="true"] ytd-searchbox #search-icon-legacy {
+  border: none !important;
+  background: transparent !important;
+  border-radius: 50% !important;
+  width: 38px !important;
+  min-width: 38px !important;
+  height: 38px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html[data-yt-reigen-search="true"] ytd-searchbox #search-icon-legacy yt-icon {
+  color: #f3f4f6 !important;
+}
+
+/* Expanded state (active) */
+html[data-yt-reigen-search="true"] ytd-searchbox.yt-search-expanded {
+  width: 480px !important;
+  max-width: 480px !important;
+  background: rgba(15, 15, 18, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-radius: 24px !important;
+  overflow: visible !important;
+}
+
+html[data-yt-reigen-search="true"] ytd-searchbox.yt-search-expanded #container {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  display: flex !important;
+}
+
+html[data-yt-reigen-search="true"] ytd-searchbox.yt-search-expanded #search-input input {
+  color: #ffffff !important;
+  font-family: inherit !important;
+  font-size: 14px !important;
+}
+
+/* Move the autocomplete suggestions dropdown to align with expanded search */
+html[data-yt-reigen-search="true"] .sbdd_a {
+  background: rgba(15, 15, 18, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6) !important;
+  overflow: hidden !important;
+  margin-top: 8px !important;
+}
+
+html[data-yt-reigen-search="true"] .sbsb_a {
+  background: transparent !important;
+}
+
+html[data-yt-reigen-search="true"] .sbsb_d {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+html[data-yt-reigen-search="true"] .sbfl_b {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+html[data-yt-reigen-search="true"] .sbqs_c {
+  color: #e5e7eb !important;
+}
