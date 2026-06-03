@@ -39,6 +39,58 @@ function findVideoElement() {
   return document.querySelector("ytd-watch-flexy video.html5-main-video, video.html5-main-video");
 }
 
+// Dynamic color engine updates UI theme colors in HSL
+function updateDynamicColors() {
+  try {
+    const imgData = offscreenCtx.getImageData(0, 0, offscreenCanvas.width, offscreenCanvas.height);
+    const data = imgData.data;
+
+    let rSum = 0, gSum = 0, bSum = 0;
+    const pixelCount = data.length / 4;
+
+    for (let i = 0; i < data.length; i += 4) {
+      rSum += data[i];
+      gSum += data[i + 1];
+      bSum += data[i + 2];
+    }
+
+    const avgR = Math.round(rSum / pixelCount);
+    const avgG = Math.round(gSum / pixelCount);
+    const avgB = Math.round(bSum / pixelCount);
+
+    const r = avgR / 255;
+    const g = avgG / 255;
+    const b = avgB / 255;
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    let h, s, l = (max + min) / 2;
+
+    if (max === min) {
+      h = s = 0;
+    } else {
+      const d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+      switch (max) {
+        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+        case g: h = (b - r) / d + 2; break;
+        case b: h = (r - g) / d + 4; break;
+      }
+      h /= 6;
+    }
+
+    const hue = Math.round(h * 360);
+    const saturation = Math.min(Math.max(Math.round(s * 100), 55), 90);
+    const lightness = 75;
+
+    const html = document.documentElement;
+    html.style.setProperty("--yt-reigen-accent-hue", hue);
+    html.style.setProperty("--yt-reigen-accent-sat", saturation);
+    html.style.setProperty("--yt-reigen-accent-light", lightness);
+  } catch (err) {
+    // Graceful fallback for cross-origin or canvas read errors
+  }
+}
+
 // Main rendering engine
 function renderGlow() {
   if (!canvas) {
@@ -62,6 +114,9 @@ function renderGlow() {
   try {
     // Step 1: Downsample video frame to tiny offscreen canvas
     offscreenCtx.drawImage(video, 0, 0, offscreenCanvas.width, offscreenCanvas.height);
+
+    // Update dynamic UI accent colors
+    updateDynamicColors();
 
     // Step 2: Clear main canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);

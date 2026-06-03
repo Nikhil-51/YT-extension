@@ -24,6 +24,32 @@ html[data-yt-reigen-glow="true"] #yt-reigen-glow-canvas {
 /* --- Cinematic Transparent UI --- */
 html[data-yt-reigen-transparent="true"] {
   background-color: #050507 !important;
+  
+  /* Fallback dynamic theme colors */
+  --yt-reigen-accent-hue: 220;
+  --yt-reigen-accent-sat: 70;
+  --yt-reigen-accent-light: 75;
+  
+  /* Dynamic text color mapping */
+  --yt-spec-text-primary: hsl(var(--yt-reigen-accent-hue), 20%, 93%) !important;
+  --yt-spec-text-secondary: hsl(var(--yt-reigen-accent-hue), 15%, 72%) !important;
+  --yt-spec-text-disabled: hsl(var(--yt-reigen-accent-hue), 10%, 50%) !important;
+  
+  /* Dynamic icon colors */
+  --yt-spec-icon-active-other: hsl(var(--yt-reigen-accent-hue), var(--yt-reigen-accent-sat)%, var(--yt-reigen-accent-light)%) !important;
+  --yt-spec-icon-inactive: hsl(var(--yt-reigen-accent-hue), 12%, 60%) !important;
+  --yt-spec-brand-icon-active: hsl(var(--yt-reigen-accent-hue), var(--yt-reigen-accent-sat)%, var(--yt-reigen-accent-light)%) !important;
+  --yt-spec-brand-icon-inactive: hsl(var(--yt-reigen-accent-hue), 12%, 60%) !important;
+  
+  /* Dynamic accent highlights and buttons */
+  --yt-spec-call-to-action: hsl(var(--yt-reigen-accent-hue), var(--yt-reigen-accent-sat)%, var(--yt-reigen-accent-light)%) !important;
+  --yt-spec-call-to-action-inverse: #050507 !important;
+  --yt-spec-brand-button-background: hsla(var(--yt-reigen-accent-hue), var(--yt-reigen-accent-sat)%, 22%, 0.8) !important;
+  --yt-spec-static-brand-red: hsl(var(--yt-reigen-accent-hue), var(--yt-reigen-accent-sat)%, var(--yt-reigen-accent-light)%) !important;
+  
+  /* Custom glassmorphism variables */
+  --yt-reigen-border: hsla(var(--yt-reigen-accent-hue), var(--yt-reigen-accent-sat)%, 50%, 0.12);
+  --yt-reigen-bg-frosted: hsla(var(--yt-reigen-accent-hue), 25%, 6%, 0.45);
 }
 
 html[data-yt-reigen-transparent="true"],
@@ -64,11 +90,11 @@ html[data-yt-reigen-transparent="true"] #primary.ytd-two-column-browse-results-r
 html[data-yt-reigen-transparent="true"] #masthead-container,
 html[data-yt-reigen-transparent="true"] ytd-masthead,
 html[data-yt-reigen-transparent="true"] #background.ytd-masthead {
-  background: rgba(10, 10, 12, 0.3) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1) !important;
+  background: hsla(var(--yt-reigen-accent-hue), 25%, 5%, 0.3) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--yt-reigen-border) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2) !important;
 }
 
 /* Sidebar Navigation Drawer Glassmorphism */
@@ -76,10 +102,10 @@ html[data-yt-reigen-transparent="true"] ytd-guide-renderer,
 html[data-yt-reigen-transparent="true"] ytd-mini-guide-renderer,
 html[data-yt-reigen-transparent="true"] #guide-content,
 html[data-yt-reigen-transparent="true"] #contentContainer.app-drawer {
-  background: rgba(10, 10, 12, 0.4) !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
-  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+  background: hsla(var(--yt-reigen-accent-hue), 25%, 5%, 0.4) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-right: 1px solid var(--yt-reigen-border) !important;
 }
 
 /* Content Panel / Cards Glassmorphism */
@@ -91,15 +117,24 @@ html[data-yt-reigen-transparent="true"] #related,
 html[data-yt-reigen-transparent="true"] ytd-playlist-panel-renderer,
 html[data-yt-reigen-transparent="true"] #panels.ytd-watch-flexy,
 html[data-yt-reigen-transparent="true"] ytd-live-chat-frame {
-  background: rgba(15, 15, 18, 0.3) !important;
+  background: var(--yt-reigen-bg-frosted) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   border-radius: 16px !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--yt-reigen-border) !important;
   padding: 18px !important;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35) !important;
   margin-bottom: 20px !important;
   overflow: hidden !important;
+}
+
+/* Dynamic styling for buttons, links and active items */
+html[data-yt-reigen-transparent="true"] a {
+  color: hsl(var(--yt-reigen-accent-hue), var(--yt-reigen-accent-sat)%, 80%) !important;
+}
+
+html[data-yt-reigen-transparent="true"] yt-formatted-string[has-link-only_] a {
+  color: hsl(var(--yt-reigen-accent-hue), var(--yt-reigen-accent-sat)%, var(--yt-reigen-accent-light)%) !important;
 }
 
 /* Live chat overrides */
