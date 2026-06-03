@@ -23,12 +23,17 @@ html[data-yt-nikhil-glow="true"] #yt-nikhil-glow-canvas {
 
 /* --- Cinematic Transparent UI --- */
 html[data-yt-nikhil-transparent="true"] {
-  background-color: #050507 !important;
-  
   /* Fallback dynamic theme colors */
   --yt-nikhil-accent-hue: 220;
   --yt-nikhil-accent-sat: 70;
   --yt-nikhil-accent-light: 75;
+  
+  /* Dynamic page background: dark, rich, matching the video hue */
+  --yt-nikhil-page-bg: hsl(var(--yt-nikhil-accent-hue), 35%, 13%) !important;
+  --yt-nikhil-card-bg: hsla(var(--yt-nikhil-accent-hue), 35%, 6%, 0.45) !important;
+  --yt-nikhil-border: hsla(var(--yt-nikhil-accent-hue), var(--yt-nikhil-accent-sat)%, 50%, 0.15) !important;
+  
+  background-color: var(--yt-nikhil-page-bg) !important;
   
   /* Dynamic text color mapping */
   --yt-spec-text-primary: hsl(var(--yt-nikhil-accent-hue), 20%, 93%) !important;
@@ -46,25 +51,21 @@ html[data-yt-nikhil-transparent="true"] {
   --yt-spec-call-to-action-inverse: #050507 !important;
   --yt-spec-brand-button-background: hsla(var(--yt-nikhil-accent-hue), var(--yt-nikhil-accent-sat)%, 22%, 0.8) !important;
   --yt-spec-static-brand-red: hsl(var(--yt-nikhil-accent-hue), var(--yt-nikhil-accent-sat)%, var(--yt-nikhil-accent-light)%) !important;
-  
-  /* Custom glassmorphism variables */
-  --yt-nikhil-border: hsla(var(--yt-nikhil-accent-hue), var(--yt-nikhil-accent-sat)%, 50%, 0.12);
-  --yt-nikhil-bg-frosted: hsla(var(--yt-nikhil-accent-hue), 25%, 6%, 0.45);
 }
 
 html[data-yt-nikhil-transparent="true"],
 html[data-yt-nikhil-transparent="true"] ytd-app,
 html[data-yt-nikhil-transparent="true"] [dark],
 html[data-yt-nikhil-transparent="true"] [theme="dark"] {
-  --yt-spec-base-background: transparent !important;
-  --yt-spec-brand-background-solid: transparent !important;
-  --yt-spec-brand-background-primary: transparent !important;
-  --yt-spec-static-brand-background-solid: transparent !important;
-  --yt-spec-general-background-a: transparent !important;
-  --yt-spec-general-background-b: transparent !important;
-  --yt-spec-general-background-c: transparent !important;
-  --yt-spec-feed-background: transparent !important;
-  --ytd-searchbox-background: transparent !important;
+  --yt-spec-base-background: var(--yt-nikhil-page-bg) !important;
+  --yt-spec-brand-background-solid: var(--yt-nikhil-page-bg) !important;
+  --yt-spec-brand-background-primary: var(--yt-nikhil-page-bg) !important;
+  --yt-spec-static-brand-background-solid: var(--yt-nikhil-page-bg) !important;
+  --yt-spec-general-background-a: var(--yt-nikhil-page-bg) !important;
+  --yt-spec-general-background-b: var(--yt-nikhil-page-bg) !important;
+  --yt-spec-general-background-c: var(--yt-nikhil-page-bg) !important;
+  --yt-spec-feed-background: var(--yt-nikhil-page-bg) !important;
+  --ytd-searchbox-background: rgba(255, 255, 255, 0.05) !important;
 }
 
 html[data-yt-nikhil-transparent="true"] body,
@@ -82,8 +83,8 @@ html[data-yt-nikhil-transparent="true"] #ytd-player,
 html[data-yt-nikhil-transparent="true"] ytd-browse,
 html[data-yt-nikhil-transparent="true"] ytd-two-column-browse-results-renderer,
 html[data-yt-nikhil-transparent="true"] #primary.ytd-two-column-browse-results-renderer {
-  background: transparent !important;
-  background-color: transparent !important;
+  background: var(--yt-nikhil-page-bg) !important;
+  background-color: var(--yt-nikhil-page-bg) !important;
 }
 
 /* Masthead (Header) Glassmorphism */
@@ -117,7 +118,7 @@ html[data-yt-nikhil-transparent="true"] #related,
 html[data-yt-nikhil-transparent="true"] ytd-playlist-panel-renderer,
 html[data-yt-nikhil-transparent="true"] #panels.ytd-watch-flexy,
 html[data-yt-nikhil-transparent="true"] ytd-live-chat-frame {
-  background: var(--yt-nikhil-bg-frosted) !important;
+  background: var(--yt-nikhil-card-bg) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
   border-radius: 16px !important;
