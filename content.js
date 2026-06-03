@@ -1,4 +1,5 @@
 /* === Nikhil's Personal YT Extension - Content Script === */
+console.log("Nikhil's Personal YT Extension: Content script initialized!");
 
 let ambientGlowEnabled = true;
 let transparentUIEnabled = true;

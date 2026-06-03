@@ -26,6 +26,21 @@ html[data-yt-reigen-transparent="true"] {
   background-color: #050507 !important;
 }
 
+html[data-yt-reigen-transparent="true"],
+html[data-yt-reigen-transparent="true"] ytd-app,
+html[data-yt-reigen-transparent="true"] [dark],
+html[data-yt-reigen-transparent="true"] [theme="dark"] {
+  --yt-spec-base-background: transparent !important;
+  --yt-spec-brand-background-solid: transparent !important;
+  --yt-spec-brand-background-primary: transparent !important;
+  --yt-spec-static-brand-background-solid: transparent !important;
+  --yt-spec-general-background-a: transparent !important;
+  --yt-spec-general-background-b: transparent !important;
+  --yt-spec-general-background-c: transparent !important;
+  --yt-spec-feed-background: transparent !important;
+  --ytd-searchbox-background: transparent !important;
+}
+
 html[data-yt-reigen-transparent="true"] body,
 html[data-yt-reigen-transparent="true"] ytd-app,
 html[data-yt-reigen-transparent="true"] #page-manager,
