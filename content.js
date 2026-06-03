@@ -16,14 +16,14 @@ const frameInterval = 1000 / fpsLimit;
 
 // Initialize the ambient canvas
 function initCanvas() {
-  if (document.getElementById("yt-reigen-glow-canvas")) {
-    canvas = document.getElementById("yt-reigen-glow-canvas");
+  if (document.getElementById("yt-nikhil-glow-canvas")) {
+    canvas = document.getElementById("yt-nikhil-glow-canvas");
     ctx = canvas.getContext("2d");
     return;
   }
 
   canvas = document.createElement("canvas");
-  canvas.id = "yt-reigen-glow-canvas";
+  canvas.id = "yt-nikhil-glow-canvas";
   ctx = canvas.getContext("2d");
 
   offscreenCanvas = document.createElement("canvas");
@@ -83,9 +83,9 @@ function updateDynamicColors() {
     const lightness = 75;
 
     const html = document.documentElement;
-    html.style.setProperty("--yt-reigen-accent-hue", hue);
-    html.style.setProperty("--yt-reigen-accent-sat", saturation);
-    html.style.setProperty("--yt-reigen-accent-light", lightness);
+    html.style.setProperty("--yt-nikhil-accent-hue", hue);
+    html.style.setProperty("--yt-nikhil-accent-sat", saturation);
+    html.style.setProperty("--yt-nikhil-accent-light", lightness);
   } catch (err) {
     // Graceful fallback for cross-origin or canvas read errors
   }
@@ -162,17 +162,17 @@ function applySettings() {
   const html = document.documentElement;
 
   // 1. Ambient Glow Engine
-  html.setAttribute("data-yt-reigen-glow", ambientGlowEnabled ? "true" : "false");
+  html.setAttribute("data-yt-nikhil-glow", ambientGlowEnabled ? "true" : "false");
   if (ambientGlowEnabled && !isLoopRunning) {
     isLoopRunning = true;
     requestAnimationFrame(tick);
   }
 
   // 2. Transparent UI
-  html.setAttribute("data-yt-reigen-transparent", transparentUIEnabled ? "true" : "false");
+  html.setAttribute("data-yt-nikhil-transparent", transparentUIEnabled ? "true" : "false");
 
   // 3. Minimalist Search
-  html.setAttribute("data-yt-reigen-search", minimalistSearchEnabled ? "true" : "false");
+  html.setAttribute("data-yt-nikhil-search", minimalistSearchEnabled ? "true" : "false");
   if (!minimalistSearchEnabled) {
     const searchBox = document.querySelector("ytd-searchbox");
     if (searchBox) {
@@ -293,3 +293,4 @@ if (document.readyState === "loading") {
 } else {
   loadSettings();
 }
+

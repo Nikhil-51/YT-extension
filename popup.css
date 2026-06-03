@@ -245,3 +245,4 @@ input:checked + .slider:before {
     box-shadow: 0 0 16px 5px var(--accent-glow);
   }
 }
+
