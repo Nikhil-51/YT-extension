@@ -47,7 +47,10 @@ The core glow engine samples colors from the video edges in real-time and projec
 
 ### Load Unpacked (Developer Mode)
 
-1. Clone or download this repository.
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/Nikhil-51/YT-extension.git
+   ```
 2. Open Google Chrome and navigate to:
    ```text
    chrome://extensions/
