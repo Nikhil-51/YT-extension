@@ -79,8 +79,10 @@ function updateDynamicColors() {
     }
 
     const hue = Math.round(h * 360);
-    const saturation = Math.min(Math.max(Math.round(s * 100), 55), 90);
-    const lightness = 75;
+    // Boost saturation by 20% and clamp between 70% and 100% for vivid colors
+    const saturation = Math.min(Math.max(Math.round(s * 100) + 20, 70), 100);
+    // Increase lightness to 82% to make text highlights pop
+    const lightness = 82;
 
     const html = document.documentElement;
     html.style.setProperty("--yt-nikhil-accent-hue", hue);
@@ -121,14 +123,14 @@ function renderGlow() {
     // Step 2: Clear main canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Step 3: Draw Zone 1 - Ambient Backdrop Wash (stretched, very soft)
-    ctx.globalAlpha = 0.18;
+    // Step 3: Draw Zone 1 - Ambient Backdrop Wash (increased opacity for richness)
+    ctx.globalAlpha = 0.32;
     ctx.drawImage(offscreenCanvas, 0, 0, canvas.width, canvas.height);
 
-    // Step 4: Draw Zone 2 - Player-Anchored Glow (matches player location & size)
+    // Step 4: Draw Zone 2 - Player-Anchored Glow (higher opacity for strong glow)
     const rect = video.getBoundingClientRect();
     if (rect.width > 0 && rect.height > 0) {
-      ctx.globalAlpha = 0.8;
+      ctx.globalAlpha = 0.95;
       ctx.drawImage(offscreenCanvas, rect.left, rect.top, rect.width, rect.height);
     }
   } catch (err) {

@@ -130,11 +130,35 @@ html[data-yt-nikhil-transparent="true"] ytd-live-chat-frame {
 
 /* Dynamic styling for buttons, links and active items */
 html[data-yt-nikhil-transparent="true"] a {
-  color: hsl(var(--yt-nikhil-accent-hue), var(--yt-nikhil-accent-sat)%, 80%) !important;
+  color: hsl(var(--yt-nikhil-accent-hue), var(--yt-nikhil-accent-sat)%, 82%) !important;
 }
 
 html[data-yt-nikhil-transparent="true"] yt-formatted-string[has-link-only_] a {
   color: hsl(var(--yt-nikhil-accent-hue), var(--yt-nikhil-accent-sat)%, var(--yt-nikhil-accent-light)%) !important;
+}
+
+/* Force high visibility for body text, comment strings, titles and meta descriptions */
+html[data-yt-nikhil-transparent="true"] yt-formatted-string,
+html[data-yt-nikhil-transparent="true"] span,
+html[data-yt-nikhil-transparent="true"] #video-title,
+html[data-yt-nikhil-transparent="true"] #content-text,
+html[data-yt-nikhil-transparent="true"] #author-text,
+html[data-yt-nikhil-transparent="true"] #title.ytd-watch-metadata,
+html[data-yt-nikhil-transparent="true"] .title.ytd-rich-grid-media,
+html[data-yt-nikhil-transparent="true"] h1,
+html[data-yt-nikhil-transparent="true"] h2,
+html[data-yt-nikhil-transparent="true"] h3,
+html[data-yt-nikhil-transparent="true"] p,
+html[data-yt-nikhil-transparent="true"] #name.ytd-author-comment-badge-renderer {
+  color: hsl(var(--yt-nikhil-accent-hue), 15%, 93%) !important;
+}
+
+/* Secondary and metadata text */
+html[data-yt-nikhil-transparent="true"] #metadata-line span,
+html[data-yt-nikhil-transparent="true"] #description-text,
+html[data-yt-nikhil-transparent="true"] .metadata.ytd-video-meta-block,
+html[data-yt-nikhil-transparent="true"] .ytd-video-meta-block span {
+  color: hsl(var(--yt-nikhil-accent-hue), 10%, 78%) !important;
 }
 
 /* Live chat overrides */
