@@ -14,6 +14,12 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License MIT" />
 </p>
 
+<p align="center">
+  <a href="https://github.com/Nikhil-51/YT-extension/archive/refs/heads/main.zip">
+    <img src="https://img.shields.io/badge/Download_Extension-(ZIP)-2ea44f?style=for-the-badge&logo=github" alt="Download Extension (ZIP)" />
+  </a>
+</p>
+
 ---
 
 ## 🌌 Ambient Glow Engine
